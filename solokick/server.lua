@@ -2,16 +2,15 @@ RegisterServerEvent('sendSession:PlayerNumber')
 AddEventHandler('sendSession:PlayerNumber', function(clientPlayerNumber)
 	if source ~= nil then
 		serverPlayerNumber = GetPlayers()
-		if #serverPlayerNumber-clientPlayerNumber > 6 then 
-			DropPlayer(source, '[Kick] Solo session.') -- Kick player
-			print("sendSession:PlayerNumber clientPlayerNumber-"..clientPlayerNumber.." serverPlayerNumber-"..serverPlayerNumber) -- Debug
+		if #serverPlayerNumber-clientPlayerNumber > 5 then 
+			DropPlayer(source, '[Kick] Solo Session') -- Kick player
+			print("^1sendSession:PlayerNumber clientPlayerNumber-"..clientPlayerNumber.." serverPlayerNumber-"..#serverPlayerNumber.."^0") -- Debug
 		end
 	end
 end)
 
-
 -- Check for update
-local CurrentVersion = [[4.0
+local CurrentVersion = [[5.0
 ]]
 PerformHttpRequest('https://raw.githubusercontent.com/chaixshot/fivem/master/solokick/version', function(Error, NewestVersion, Header)
 	if CurrentVersion ~= NewestVersion then
