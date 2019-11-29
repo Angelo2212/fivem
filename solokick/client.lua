@@ -1,13 +1,8 @@
+local wait = 2*60*1000
 Citizen.CreateThread(function()
-	Wait(3*60*10) -- Delay first spawn.
+	Citizen.Wait(wait) -- Delay first spawn.
 	while true do
-		local count = 0
-		for id = 0, 255 do 
-			if NetworkIsPlayerActive(id) then
-				count = count+1
-			end
-		end
-		TriggerServerEvent('sendSession:PlayerNumber', count)
-		Wait(5*60*10)
+		TriggerServerEvent('sendSession:PlayerNumber', #GetActivePlayers())
+		Citizen.Wait(wait)
 	end
 end)
