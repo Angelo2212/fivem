@@ -1,10 +1,10 @@
 RegisterServerEvent('sendSession:PlayerNumber')
 AddEventHandler('sendSession:PlayerNumber', function(clientPlayerNumber)
 	if source ~= nil then
-		serverPlayerNumber = GetPlayers()
-		if #serverPlayerNumber-clientPlayerNumber > 5 then 
+		local serverPlayerNumber = #GetPlayers()
+		if serverPlayerNumber-clientPlayerNumber > 5 then 
 			DropPlayer(source, '[Kick] Solo Session') -- Kick player
-			print("^1sendSession:PlayerNumber clientPlayerNumber-"..clientPlayerNumber.." serverPlayerNumber-"..#serverPlayerNumber.."^0") -- Debug
+			print("^1[SOLO-KICK] Server-"..serverPlayerNumber.." / Client-"..clientPlayerNumber.."^0") -- Debug
 		end
 	end
 end)
