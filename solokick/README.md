@@ -1,3 +1,6 @@
+Fimve script https://forum.fivem.net/t/release-auto-kick-solo-session-v5-0/
+By DarkRolePlay Thailand
+
 If you use deferrals, you must add "DropPlayer" 
 
 ```
